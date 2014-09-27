@@ -1,0 +1,40 @@
+<html ng-app='registerationApp'>
+  <head>
+      <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css"/>
+      <link rel="stylesheet" href="beutify.css"/>
+     <script src="bower_components/angular/angular.js"></script>
+     <script src="bower_components/jquery/jquery.js"></script>
+     <script src="controller.js"></script>
+  </head>
+  <body ng-controller='registerationController'>
+    <div id='registeration_container'>
+      <ul>
+        <li style='background:#666;color:#fff'>Players</li>
+        <li ng-repeat="(index,player) in playerList">
+           
+           <p>{{player.name}} 
+              <span class="{{player.status}}">purchased for ${{player.sold_for}}</span>
+              <span class="{{player.status}}">purchased by   {{player.purchased_by}}</span>
+            </p>
+            
+           <div class="{{player.status}}">
+            {{player.sold_for}}
+           <select id='select-team-for-{{player.id}} ' ng-model="team" ng-change="selectTeam(team,{{index}},player)"  ng-options="team as team.name for team in teamList" >
+           </select>
+           <br/>
+           <p>For $</p>
+           <select ng-model="price" ng-change="purchasePlayer(price,{{index}},player)"  ng-options="price as price for price in prices" >
+           </select>
+           <br/>
+           </div>
+        </li>
+      </ul>
+      <ul>
+        <li style='background:#666;color:#fff'>Teams</li>
+        <li ng-repeat="team in teamList" id='{{team.team_id}}' class='teams'>
+           <span  ng-repeat="item in team.team_players track by $index">{{item}}</span>
+        </li>
+      </ul>
+  </div>
+  </body>
+</html>

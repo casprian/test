@@ -1,0 +1,14 @@
+ul{width:500px;float:left;display:block;padding:10px;margin:10px;border:solid 1px #ccc;}
+li{display:block;float:left;width:400px;padding:10px;margin:10px;border:solid 1px #ccc;}
+div{float:left;}
+select{float:left;}
+
+div.unsold{display:block;}
+span.UNsold{display:none}
+
+div.sold{display:none;}
+span.sold{display:block}
+
+.highlight{background:yellow;}
+
+span{border:solid 2px #555;margin:5px;display:inline-block;}
